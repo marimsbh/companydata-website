@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    background-color:  rgb(224, 229, 239);
+    color: #575e7d;
+    font-weight: bold; 
+    scroll-behavior: smooth;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/*Dark theme css*/
+.dark-theme {
+    background-color: #333; 
+    color: #fff; 
+}
+
+body.dark-theme {
+    color: #fff; /* White text color in dark mode */
+}
+
+
+.toggle-switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+}
+  
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+  
+.checkbox {
+    position: absolute;
+    display: none;
+}
+  
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+  
+.checkbox:checked ~ .slider {
+    background-color: #d8dbe0;
+}
+  
+  .slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    box-shadow: inset 12px -4px 0px 0px #d8dbe0;
+    background-color: #28292c;
+    transition: 0.3s;
+  }
+  
+.checkbox:checked ~ .slider::before {
+    transform: translateX(50px);
+    background-color: var(--dark);
+    box-shadow: none;
+}
+  
+
+main {
+    position: relative;
+}
+
+.welcomeAndIntro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    min-height: calc(100vh - 60px); 
+}
+
+
+header {
+    background-color: #73799c;
+    padding: 0 2rem;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+nav {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e6e6e6;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+
+nav .links {
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+nav .links li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+nav .links a {
+    color: #5a6490;
+    text-decoration: none; 
+    transition: color 0.5s;
+}
+
+nav .links a:hover{
+    color: #c9dd8e;
+
+}
+nav .dropDownMenu a {
+    font-size: 16px; 
+    font-weight: 500;
+    color: #626368;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.center-content {
+    max-width: 600px; 
+}
+
+#welcomeAndIntro h2 {
+    font-size: 3vw;
+    margin-bottom: 1rem;
+    color: whitesmoke;
+}
+
+#welcomeAndIntro p {
+    font-size: 1.3vw;
+    margin-bottom: 2rem;
+}
+
+
+nav .toggle-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; 
+    position: absolute;
+    right: 2rem;
+    top: 10px; 
+}
+
+.about{
+    width: 100%;
+    padding: 60px 0; 
+    background-color: #192930;
+    align-items: center;
+    margin-bottom: 40px; 
+}
+
+
+.main{
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 100px;
+}
+
+.aboutInfo h2{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom:20px;
+}
+
+.aboutInfo p{
+    font-size: 16px;
+    line-height: 28px;
+    color: #e0ffff;
+    text-align: justify;
+    margin-bottom: 45px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropDownMenu {
+    height: 0;
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background: rgba(225, 225, 225, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropDownMenu.display {
+    height: 265px;
+}
+
+.dropDownMenu li {
+    color:#575e7d;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropDownMenu a:hover {
+    color: #627aae;
+}
+
+
+.about-section {
+    width: 100%;
+    background-color: #575e7d;
+    color: #fff;
+    padding: 60px 0;
+}
+
+.main {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.about-info {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.about-info h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-info p {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.about-image {
+    width: 50%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    padding: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.labelFont {
+    font-weight: bold;
+}
+.text-danger {
+    color: #dc3545;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    nav .links,
+    nav .get_access-button {
+        display: none;
+    }
+
+    nav .toggle-btn {
+        display: block; 
+    }
+
+    .dropDownMenu {
+        display: block;
+    }
+
+    #welcomeAndIntro h2 {
+        font-size: 3.5vw;
+    }
+
+    #welcomeAndIntro p {
+        font-size: 1.8vw;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 576px) {
+    .dropDownMenu {
+        left: 2rem;
+        width: unset;
+    }
+
+    #welcomeAndIntro h2 {
+        font-size: 4.2vw;
+    }
+
+    #welcomeAndIntro p {
+        font-size: 2.7vw;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .about-info,
+    .about-image {
+        width: 100%; 
+        margin-bottom: 20px; 
+        text-align: center;
+    }
+
+    .about-info {
+        order: 2; 
+    }
+
+    .about-image {
+        order: 1; 
+    }
+}
+
